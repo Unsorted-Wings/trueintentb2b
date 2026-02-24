@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart3, Bot, Check, Database, Filter, Globe, Layers, MessageSquare, MousePointer, Phone, Search, Target, UserCheck, Zap } from 'lucide-react';
+import { ArrowRight, BarChart3, BookOpen, Bot, Check, Database, Filter, Globe, Layers, MessageSquare, MousePointer, Phone, Search, Target, UserCheck, Zap } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -178,6 +178,56 @@ export default function ServicesPage() {
                       <p className="text-slate-600 text-sm">Ask qualification questions (e.g. "What is your budget?") before you pay.</p>
                     </div>
                   </div>
+               </div>
+             </motion.div>
+          </div>
+
+          {/* Service 4: Bookkeeping Services (Reversed) */}
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+             <motion.div
+               initial={{ opacity: 0, x: -50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               className="order-2 lg:order-1"
+             >
+               <h2 className="text-4xl font-bold text-slate-900 mb-6">Bookkeeping Services</h2>
+               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                 Keep your finances clean, accurate, and audit-ready. Our dedicated bookkeeping team handles the numbers so you can stay focused on growing your business.
+               </p>
+               <ul className="space-y-4 mb-8">
+                 {[
+                   "Monthly Bank & Credit Card Reconciliation",
+                   "Accounts Payable & Receivable Tracking",
+                   "Payroll Processing & Reporting",
+                   "Tax-Ready Financial Statements",
+                   "QuickBooks / Xero Integration"
+                 ].map((item, i) => (
+                   <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                     <div className="bg-green-100 text-green-600 p-1 rounded-full"><Check size={14} /></div>
+                     {item}
+                   </li>
+                 ))}
+               </ul>
+               <button className="text-blue-600 font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                 Get a Free Consultation <ArrowRight size={18} />
+               </button>
+             </motion.div>
+
+             <motion.div
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               className="order-1 lg:order-2 relative h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 group"
+             >
+               <Image src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2672&auto=format&fit=crop" alt="Bookkeeping" fill className="object-cover transition duration-700 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent flex items-end p-8">
+                 <div className="text-white">
+                   <div className="bg-emerald-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4">
+                     <BookOpen />
+                   </div>
+                   <p className="font-bold text-lg">Key Outcome</p>
+                   <p className="text-slate-300 text-sm">Always close-ready books with zero compliance surprises.</p>
+                 </div>
                </div>
              </motion.div>
           </div>
