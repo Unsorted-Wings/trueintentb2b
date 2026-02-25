@@ -112,9 +112,6 @@ export default function ServicesPage() {
                    </li>
                  ))}
                </ul>
-               <button className="text-blue-600 font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                 View Sample Campaigns <ArrowRight size={18} />
-               </button>
              </motion.div>
 
              <motion.div 
@@ -208,9 +205,6 @@ export default function ServicesPage() {
                    </li>
                  ))}
                </ul>
-               <button className="text-blue-600 font-bold flex items-center gap-2 hover:gap-4 transition-all">
-                 Get a Free Consultation <ArrowRight size={18} />
-               </button>
              </motion.div>
 
              <motion.div
