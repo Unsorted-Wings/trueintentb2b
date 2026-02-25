@@ -103,7 +103,7 @@ export default function ServicesPage() {
                  {[
                    "A/B Tested Subject Lines",
                    "LinkedIn Connection & InMail Requests",
-                   "US-Based SDR Calling Support",
+                   "India & US-Based SDR Calling Support",
                    "Calendar Booking & Handoff"
                  ].map((item, i) => (
                    <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">

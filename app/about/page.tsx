@@ -204,7 +204,7 @@ export default function AboutPage() {
             {[
               { name: "Rohit Sharma", role: "Co-Founder & CEO", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2670&auto=format&fit=crop" },
               { name: "Ravi Makwan", role: "Co-Founder & COO", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=2574&auto=format&fit=crop" },
-              { name: "Ruben Christie", role: "Partner & Consultant", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=2576&auto=format&fit=crop" },
+              { name: "Ruben Christie", role: "Partner & Consultant", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=2574&auto=format&fit=crop" },
             ].map((member, i) => (
               <div key={i} className="group cursor-pointer">
                 <div className="relative h-[400px] w-full mb-4 overflow-hidden rounded-xl bg-slate-100">

@@ -40,16 +40,6 @@ export default function Home() {
             <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed">
               We combine AI-driven intent signals with human-verified contact data to fill your pipeline with buyers who are actually ready to purchase.
             </p>
-            <div className="flex gap-4">
-              <Link href="/contact">
-                <button className="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30 transition duration-300">
-                  Get Free Leads
-                </button>
-              </Link>
-              <button className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 transition shadow-sm">
-                <Play size={18} fill="currentColor" /> Watch Demo
-              </button>
-            </div>
             
             <div className="mt-12 flex items-center gap-4 text-sm text-slate-500 font-medium">
                <div className="flex -space-x-3">
@@ -158,19 +148,6 @@ export default function Home() {
                  <p className="text-slate-500">Refresh your CRM with 99% accurate info.</p>
                </div>
             </motion.div>
-
-             {/* Card 4: Wide Bottom Card */}
-             <motion.div whileHover={{ y: -5 }} className="md:col-span-3 bg-slate-900 text-white rounded-3xl p-10 flex items-center justify-between overflow-hidden relative">
-                <div className="relative z-10 max-w-lg">
-                   <h3 className="text-2xl font-bold mb-2">Appointment Setting</h3>
-                   <p className="text-slate-400">We book the meetings. You close the deals. Pay per qualified meeting.</p>
-                </div>
-                <div className="hidden md:flex gap-4">
-                   <button className="bg-white text-slate-900 px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition">See Pricing</button>
-                </div>
-                {/* Abstract graphic */}
-                <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-blue-600/30 to-transparent"></div>
-             </motion.div>
           </div>
         </div>
       </section>

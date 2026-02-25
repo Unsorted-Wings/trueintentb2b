@@ -56,7 +56,7 @@ export default function ContactPage() {
               
               <div className="space-y-6">
                  {[
-                   { icon: <Mail />, title: "Email", val: "growth@trueintent.com" },
+                   { icon: <Mail />, title: "Email", val: "contact@trueintent.com" },
                    { icon: <Phone />, title: "Phone", val: "+1 (858) 733-7444" },
                    { icon: <MapPin />, title: "HQ", val: "2036 North Gilbert Road Suite 2, Mesa AZ 85203" }
                  ].map((item, i) => (

@@ -124,7 +124,7 @@ const Footer = () => (
       <div>
         <h4 className="text-white font-bold mb-6 text-lg">Contact</h4>
         <ul className="space-y-3 text-sm">
-          <li>hello@trueintentb2b.com</li>
+          <li>contact@trueintentb2b.com</li>
           <li>+1 (858) 733-7444</li>
           <li>2036 North Gilbert Road Suite 2, Mesa AZ 85203</li>
         </ul>
