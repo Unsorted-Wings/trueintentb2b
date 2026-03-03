@@ -34,7 +34,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isServiceSubpage = pathname.startsWith('/services/') && pathname !== '/services';
+  const isServiceSubpage = pathname.startsWith('/services');
   const unscrolledText = isServiceSubpage ? 'text-white' : 'text-slate-500';
   const unscrolledLogo = isServiceSubpage ? 'text-white' : 'text-black';
 
