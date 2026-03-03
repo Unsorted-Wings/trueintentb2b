@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ChevronDown, Mail, MapPin, MessageSquare, Phone } from 'lucide-react';
+import { ChevronDown, Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 
@@ -33,15 +33,15 @@ export default function ContactPage() {
   return (
     <main className="bg-slate-50 min-h-screen">
       
-      {/* 1. HERO / FORM SECTION */}
+      {/* 1. HERO SECTION */}
       <section className="pt-32 pb-24 px-6 relative overflow-hidden">
         {/* Background Texture */}
         <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
         
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-5 gap-8 lg:gap-16">
+        <div className="max-w-7xl mx-auto relative z-10">
           
-          {/* LEFT SIDE: Info & Context (2 cols) */}
-          <div className="lg:col-span-2 space-y-12">
+          {/* Contact Info */}
+          <div className="max-w-2xl mx-auto space-y-12">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -91,66 +91,13 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* RIGHT SIDE: The Form (3 cols) */}
-          <div className="lg:col-span-3">
-            <motion.div 
-               initial={{ opacity: 0, scale: 0.95 }}
-               animate={{ opacity: 1, scale: 1 }}
-               transition={{ duration: 0.6, delay: 0.2 }}
-               className="bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-8 md:p-12"
-            >
-               <form className="space-y-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-900 ml-1">First Name</label>
-                      <input type="text" className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition font-medium" placeholder="Jane" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-slate-900 ml-1">Last Name</label>
-                      <input type="text" className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition font-medium" placeholder="Doe" />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-900 ml-1">Work Email</label>
-                    <input type="email" className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition font-medium" placeholder="jane@company.com" />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-900 ml-1">I am interested in...</label>
-                    <div className="grid grid-cols-2 gap-4">
-                       {['Lead Generation', 'Intent Data', 'Data Cleansing', 'Partnership'].map((opt, i) => (
-                         <label key={i} className="flex items-center gap-3 p-4 rounded-xl border border-slate-200 cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition">
-                           <input type="radio" name="interest" className="w-5 h-5 text-blue-600 accent-blue-600" />
-                           <span className="text-sm font-bold text-slate-700">{opt}</span>
-                         </label>
-                       ))}
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-900 ml-1">Additional Details</label>
-                    <textarea rows={4} className="w-full px-6 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition font-medium" placeholder="Tell us about your target market..."></textarea>
-                  </div>
-
-                  <button type="button" className="w-full bg-blue-600 text-white font-bold text-lg py-5 rounded-xl hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-600/30 transition transform hover:-translate-y-1">
-                    Get Free Strategy Audit
-                  </button>
-                  
-                  <p className="text-center text-xs text-slate-400 mt-4">
-                    By submitting, you agree to our privacy policy. We respect your inbox.
-                  </p>
-               </form>
-            </motion.div>
-          </div>
-
         </div>
       </section>
 
       {/* 2. "WHAT HAPPENS NEXT" SECTION */}
       <section className="py-24 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-16">What happens after you click submit?</h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-16">What happens after you reach out?</h2>
           
           <div className="grid md:grid-cols-3 gap-12 relative">
              {/* Connector Line */}
@@ -158,8 +105,8 @@ export default function ContactPage() {
 
              {[
                { title: "1. Discovery", desc: "We research your company and TAM before we even call you." },
-               { title: "2. Strategy Call", desc: "A 15-min chat to validate your ICP and show you live data samples." },
-               { title: "3. Launch", desc: "If we're a fit, we can have your first campaign live in 48 hours." }
+               { title: "2. Strategy Call", desc: "A chat to validate your ICP and show you live data samples." },
+               { title: "3. Launch", desc: "If we're a fit, we can have your first campaign live in some days." }
              ].map((step, i) => (
                <div key={i} className="relative z-10 flex flex-col items-center">
                  <div className="w-24 h-24 bg-white border-4 border-blue-50 rounded-full flex items-center justify-center text-blue-600 font-bold text-2xl mb-6 shadow-sm">
@@ -182,10 +129,6 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100">
-             <FAQItem 
-               question="Do you offer a free trial?" 
-               answer="We offer a free data sample (50 verified leads) customized to your ICP so you can test our data accuracy before committing." 
-             />
              <FAQItem 
                question="Where do you source your data?" 
                answer="We aggregate data from 15+ premium vendors and cross-reference it with our proprietary intent signals. Then, our human team verifies phone numbers manually." 

@@ -96,7 +96,7 @@ export default function AboutPage() {
 
             <div className="mt-10 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-slate-200 overflow-hidden relative">
-                <Image src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2670&auto=format&fit=crop" alt="CEO" fill className="object-cover" />
+                <Image src="/assets/rohit_sharma.jpeg" alt="CEO" fill className="object-cover" />
               </div>
               <div>
                 <p className="font-bold text-slate-900">Rohit Sharma</p>
