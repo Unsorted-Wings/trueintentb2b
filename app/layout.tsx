@@ -3,17 +3,29 @@
 import './globals.css';
 import { Inter } from 'next/font/google';
 import { useState, useEffect } from 'react';
-import { Target, Menu, X, ArrowRight, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { ChevronDown, Target, Menu, X, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const serviceLinks = [
+  { name: 'Intent Data & Tele-Verification', href: '/services/intent-data' },
+  { name: 'ABM Execution', href: '/services/abm-execution' },
+  { name: 'MQL Generation', href: '/services/mql-generation' },
+  { name: 'HQL / BANT-Qualified Leads', href: '/services/hql-bant' },
+  { name: 'Whitepaper & Content Syndication', href: '/services/content-syndication' },
+  { name: 'CRM Data Cleansing & Enrichment', href: '/services/crm-enrichment' },
+  { name: 'Bookkeeping Services', href: '/services/bookkeeping' },
+];
+
 // --- NAVIGATION COMPONENT ---
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -24,8 +36,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'About', href: '/about' }, // You can create this later
+    { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -44,10 +55,50 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
+          {/* Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
+            <button className={`flex items-center gap-1 text-sm font-semibold transition hover:text-blue-500 ${
+              pathname.startsWith('/services') ? 'text-blue-500' : (scrolled ? 'text-slate-600' : 'text-slate-500')
+            }`}>
+              Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white border border-slate-100 rounded-2xl shadow-2xl overflow-hidden"
+                >
+                  <div className="p-2">
+                    <Link href="/services" className="block px-4 py-3 rounded-xl text-xs font-bold text-blue-600 uppercase tracking-widest hover:bg-blue-50 transition mb-1">
+                      All Services →
+                    </Link>
+                    {serviceLinks.map((svc) => (
+                      <Link
+                        key={svc.href}
+                        href={svc.href}
+                        onClick={() => setServicesOpen(false)}
+                        className="block px-4 py-2.5 rounded-xl text-sm text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600 transition"
+                      >
+                        {svc.name}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
+            <Link
+              key={link.name}
+              href={link.href}
               className={`text-sm font-semibold transition hover:text-blue-500 ${
                 pathname === link.href ? 'text-blue-500' : (scrolled ? 'text-slate-600' : 'text-slate-500')
               }`}
@@ -57,7 +108,7 @@ const Navbar = () => {
           ))}
           <Link href="/contact">
             <button className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
-              Get Started
+              Book a Call
             </button>
           </Link>
         </div>
@@ -71,15 +122,37 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="md:hidden bg-white border-t max-h-[80vh] overflow-y-auto"
           >
-            <div className="flex flex-col p-6 space-y-4">
+            <div className="flex flex-col p-6 space-y-2">
+              <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-slate-900 py-1">Home</Link>
+
+              {/* Services mobile accordion */}
+              <div>
+                <button
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                  className="flex items-center justify-between w-full text-lg font-medium text-slate-900 py-1"
+                >
+                  Services <ChevronDown size={18} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileServicesOpen && (
+                  <div className="pl-4 pt-2 space-y-2">
+                    <Link href="/services" onClick={() => setIsOpen(false)} className="block text-sm font-bold text-blue-600 py-1">All Services</Link>
+                    {serviceLinks.map((svc) => (
+                      <Link key={svc.href} href={svc.href} onClick={() => { setIsOpen(false); setMobileServicesOpen(false); }} className="block text-sm text-slate-600 py-1">
+                        {svc.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               {navLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-slate-900">
+                <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-slate-900 py-1">
                   {link.name}
                 </Link>
               ))}
@@ -103,7 +176,7 @@ const Footer = () => (
           <span className="text-2xl font-bold text-white">TrueIntent<span className="text-blue-500">B2B</span></span>
         </div>
         <p className="max-w-sm mb-8 text-slate-400">
-          We combine human intelligence with AI-driven intent data to deliver leads that actually convert. Stop guessing, start closing.
+          Human-verified, tele-qualified demand generation built exclusively for B2B SaaS companies. We don&apos;t send you leads. We send you conversations worth having.
         </p>
         <div className="flex gap-4">
           {[Linkedin, Twitter, Facebook].map((Icon, i) => (
@@ -114,10 +187,20 @@ const Footer = () => (
         </div>
       </div>
       <div>
-        <h4 className="text-white font-bold mb-6 text-lg">Solutions</h4>
+        <h4 className="text-white font-bold mb-6 text-lg">Services</h4>
         <ul className="space-y-3 text-sm">
-          {['Lead Generation', 'Content Syndication', 'Account Based Marketing', 'Data Cleansing', 'Intent Data'].map(item => (
-             <li key={item} className="hover:text-blue-500 cursor-pointer transition">{item}</li>
+          {[
+            { label: 'Intent Data & Tele-Verification', href: '/services/intent-data' },
+            { label: 'ABM Execution', href: '/services/abm-execution' },
+            { label: 'MQL Generation', href: '/services/mql-generation' },
+            { label: 'HQL / BANT-Qualified Leads', href: '/services/hql-bant' },
+            { label: 'Content Syndication', href: '/services/content-syndication' },
+            { label: 'CRM Data Cleansing', href: '/services/crm-enrichment' },
+            { label: 'Bookkeeping Services', href: '/services/bookkeeping' },
+          ].map(item => (
+            <li key={item.href}>
+              <Link href={item.href} className="hover:text-blue-500 transition">{item.label}</Link>
+            </li>
           ))}
         </ul>
       </div>
@@ -126,7 +209,7 @@ const Footer = () => (
         <ul className="space-y-3 text-sm">
           <li>contact@trueintentb2b.com</li>
           <li>+1 (858) 733-7444</li>
-          <li>2036 North Gilbert Road Suite 2, Mesa AZ 85203</li>
+          <li>1646 West Monte Way, Phoenix AZ 85041</li>
         </ul>
       </div>
     </div>

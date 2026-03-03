@@ -58,7 +58,7 @@ export default function ContactPage() {
                  {[
                    { icon: <Mail />, title: "Email", val: "contact@trueintent.com" },
                    { icon: <Phone />, title: "Phone", val: "+1 (858) 733-7444" },
-                   { icon: <MapPin />, title: "HQ", val: "2036 North Gilbert Road Suite 2, Mesa AZ 85203" }
+                   { icon: <MapPin />, title: "HQ", val: "1646 West Monte Way, Phoenix AZ 85041" }
                  ].map((item, i) => (
                    <div key={i} className="flex items-center gap-4 group cursor-pointer">
                      <div className="w-12 h-12 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-sm">
