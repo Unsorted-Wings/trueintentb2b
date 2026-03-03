@@ -19,9 +19,6 @@ export default function IntentDataPage() {
             <Link href="/services" className="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-8 hover:text-blue-300 transition">
               ← Back to Services
             </Link>
-            <span className="inline-block py-2 px-4 rounded-full bg-white/10 border border-white/10 text-blue-300 text-sm font-bold tracking-wide mb-6">
-              SERVICE 01
-            </span>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               Intent Data &<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400">Tele-Verification</span>
             </h1>

@@ -19,9 +19,6 @@ export default function CRMEnrichmentPage() {
             <Link href="/services" className="inline-flex items-center gap-2 text-blue-400 text-sm font-semibold mb-8 hover:text-blue-300 transition">
               ← Back to Services
             </Link>
-            <span className="inline-block py-2 px-4 rounded-full bg-white/10 border border-white/10 text-blue-300 text-sm font-bold tracking-wide mb-6">
-              SERVICE 06
-            </span>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
               CRM Data Cleansing<br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400">&amp; Enrichment</span>
             </h1>

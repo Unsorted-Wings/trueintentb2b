@@ -34,6 +34,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isServiceSubpage = pathname.startsWith('/services/') && pathname !== '/services';
+  const unscrolledText = isServiceSubpage ? 'text-white' : 'text-slate-500';
+  const unscrolledLogo = isServiceSubpage ? 'text-white' : 'text-black';
+
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
@@ -48,7 +52,7 @@ const Navbar = () => {
           <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition duration-300">
             <Target size={24} strokeWidth={3} />
           </div>
-          <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-900' : 'text-black'} transition-colors`}>
+          <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-900' : unscrolledLogo} transition-colors`}>
             TrueIntent<span className="text-blue-500">B2B</span>
           </span>
         </Link>
@@ -62,7 +66,7 @@ const Navbar = () => {
             onMouseLeave={() => setServicesOpen(false)}
           >
             <button className={`flex items-center gap-1 text-sm font-semibold transition hover:text-blue-500 ${
-              pathname.startsWith('/services') ? 'text-blue-500' : (scrolled ? 'text-slate-600' : 'text-slate-500')
+              pathname.startsWith('/services') ? (scrolled ? 'text-blue-500' : (isServiceSubpage ? 'text-white' : 'text-blue-500')) : (scrolled ? 'text-slate-600' : unscrolledText)
             }`}>
               Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
             </button>
@@ -100,7 +104,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={`text-sm font-semibold transition hover:text-blue-500 ${
-                pathname === link.href ? 'text-blue-500' : (scrolled ? 'text-slate-600' : 'text-slate-500')
+                pathname === link.href ? 'text-blue-500' : (scrolled ? 'text-slate-600' : unscrolledText)
               }`}
             >
               {link.name}
