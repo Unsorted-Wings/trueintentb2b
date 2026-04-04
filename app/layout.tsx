@@ -1,12 +1,13 @@
 'use client';
 
-import './globals.css';
+import "./globals.css";
 import { Inter } from 'next/font/google';
 import { useState, useEffect } from 'react';
 import { ChevronDown, Target, Menu, X, Linkedin, Twitter, Facebook } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -49,12 +50,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition duration-300">
-            <Target size={24} strokeWidth={3} />
+          <div className="w-40 h-20 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition duration-300">
+            <Image src="/assets/TrueIntent.png" alt="TrueIntentB2B Logo" width={180} height={20} />
           </div>
-          <span className={`text-xl font-bold tracking-tight ${scrolled ? 'text-slate-900' : unscrolledLogo} transition-colors`}>
-            TrueIntent<span className="text-blue-500">B2B</span>
-          </span>
+          
         </Link>
 
         {/* Desktop Links */}
@@ -174,10 +173,9 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
       <div className="col-span-1 md:col-span-2">
         <div className="flex items-center gap-2 mb-6">
-          <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white">
-            <Target size={18} />
+          <div className="w-40 h-20 rounded-lg flex items-center justify-center text-white">
+            <Image src="/assets/TrueIntent.png" alt="TrueIntentB2B Logo" width={180} height={20} />
           </div>
-          <span className="text-2xl font-bold text-white">TrueIntent<span className="text-blue-500">B2B</span></span>
         </div>
         <p className="max-w-sm mb-8 text-slate-400">
           Human-verified, tele-qualified demand generation built exclusively for B2B SaaS companies. We don&apos;t send you leads. We send you conversations worth having.
