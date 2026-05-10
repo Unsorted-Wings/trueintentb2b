@@ -191,7 +191,7 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Christopher founded TrueIntent B2B on a simple but powerful belief: that B2B growth shouldn&apos;t be built on noise — it should be built on intent. With over <strong className="text-slate-800">7 years of hands-on experience</strong> in demand generation, lead qualification, and inside sales across global markets, he has helped marketing teams and agencies transform bloated pipelines into precision revenue engines. At TrueIntent B2B, Christopher leads with a vision where every lead is a conversation worth having, and every campaign is a step closer to predictable, scalable growth.
+                  Christopher at TrueIntent B2B has a simple but powerful belief: that B2B growth shouldn&apos;t be built on noise — it should be built on intent. With over <strong className="text-slate-800">7 years of hands-on experience</strong> in demand generation, lead qualification, and inside sales across global markets, he has helped marketing teams and agencies transform bloated pipelines into precision revenue engines. At TrueIntent B2B, Christopher leads with a vision where every lead is a conversation worth having, and every campaign is a step closer to predictable, scalable growth.
                 </p>
               </div>
             </motion.div>
