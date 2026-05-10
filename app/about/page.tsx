@@ -96,11 +96,11 @@ export default function AboutPage() {
 
             <div className="mt-10 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-slate-200 overflow-hidden relative">
-                <Image src="/assets/rohit_sharma.jpeg" alt="CEO" fill className="object-cover" />
+                <Image src="/assets/christopher.jpeg" alt="VP Marketing" fill className="object-cover" />
               </div>
               <div>
-                <p className="font-bold text-slate-900">Rohit Sharma</p>
-                <p className="text-slate-500 text-sm">Co-Founder & CEO</p>
+                <p className="font-bold text-slate-900">Christopher</p>
+                <p className="text-slate-500 text-sm">VP Marketing</p>
               </div>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            {/* Rohit Sharma */}
+            {/* Christopher */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -173,15 +173,15 @@ export default function AboutPage() {
               transition={{ delay: 0 }}
               className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition duration-300 group"
             >
-              <div className="relative h-64 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-                <Image src="/assets/rohit_sharma.jpeg" alt="CEO" fill className="object-cover object-top"/>
+              <div className="relative h-100 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
+                <Image src="/assets/christopher.jpeg" alt="VP Marketing" fill className="object-cover object-top"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
               </div>
               <div className="p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">Rohit Sharma</h3>
-                    <p className="text-blue-600 text-sm font-semibold mt-0.5">Co-Founder &amp; CEO</p>
+                    <h3 className="text-xl font-bold text-slate-900">Christopher</h3>
+                    <p className="text-blue-600 text-sm font-semibold mt-0.5">VP Marketing</p>
                     <p className="text-slate-400 text-xs font-medium mt-0.5">TrueIntent B2B</p>
                   </div>
                   <div className="flex gap-2">
@@ -191,12 +191,12 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Rohit founded TrueIntent B2B on a simple but powerful belief: that B2B growth shouldn&apos;t be built on noise — it should be built on intent. With over <strong className="text-slate-800">7 years of hands-on experience</strong> in demand generation, lead qualification, and inside sales across global markets, he has helped marketing teams and agencies transform bloated pipelines into precision revenue engines. At TrueIntent B2B, Rohit leads with a vision where every lead is a conversation worth having, and every campaign is a step closer to predictable, scalable growth.
+                  Christopher founded TrueIntent B2B on a simple but powerful belief: that B2B growth shouldn&apos;t be built on noise — it should be built on intent. With over <strong className="text-slate-800">7 years of hands-on experience</strong> in demand generation, lead qualification, and inside sales across global markets, he has helped marketing teams and agencies transform bloated pipelines into precision revenue engines. At TrueIntent B2B, Christopher leads with a vision where every lead is a conversation worth having, and every campaign is a step closer to predictable, scalable growth.
                 </p>
               </div>
             </motion.div>
 
-            {/* Ravi Makwana */}
+            {/* Kevin */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -204,15 +204,15 @@ export default function AboutPage() {
               transition={{ delay: 0.15 }}
               className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition duration-300 group"
             >
-              <div className="relative h-64 bg-gradient-to-br from-indigo-50 to-violet-100 flex items-center justify-center">
-                <Image src="/assets/ravi_makwana.jpeg" alt="COO" fill className="object-cover object-top" />
+              <div className="relative h-100 bg-gradient-to-br from-indigo-50 to-violet-100 flex items-center justify-center">
+                <Image src="/assets/kevin.jpeg" alt="Head of Operations" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
               </div>
               <div className="p-8">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">Ravi Makwana</h3>
-                    <p className="text-indigo-600 text-sm font-semibold mt-0.5">Co-Founder &amp; COO</p>
+                    <h3 className="text-xl font-bold text-slate-900">Kevin</h3>
+                    <p className="text-indigo-600 text-sm font-semibold mt-0.5">Head of Operations</p>
                     <p className="text-slate-400 text-xs font-medium mt-0.5">TrueIntent B2B</p>
                   </div>
                   <div className="flex gap-2">
@@ -222,13 +222,13 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Ravi is the operational backbone of TrueIntent B2B, bringing <strong className="text-slate-800">over a decade of deep expertise</strong> in B2B demand generation, training, and project execution. Having built and scaled high-performance teams across lead generation, content syndication, BANT qualification, and data operations, he ensures TrueIntent&apos;s delivery engine runs with precision, consistency, and zero compromise on quality. Ravi&apos;s vision is simple — great strategy means nothing without flawless execution, and that&apos;s exactly what he&apos;s built his career on.
+                  Kevin is the operational backbone of TrueIntent B2B, bringing <strong className="text-slate-800">over a decade of deep expertise</strong> in B2B demand generation, training, and project execution. Having built and scaled high-performance teams across lead generation, content syndication, BANT qualification, and data operations, he ensures TrueIntent&apos;s delivery engine runs with precision, consistency, and zero compromise on quality. Kevin&apos;s vision is simple — great strategy means nothing without flawless execution, and that&apos;s exactly what he&apos;s built his career on.
                 </p>
               </div>
             </motion.div>
 
             {/* Ruben Christie */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -256,7 +256,7 @@ export default function AboutPage() {
                   Ruben brings a rare blend of <strong className="text-slate-800">US market expertise, MBA-level strategic thinking</strong>, and hands-on experience across sales, operations, and business development to TrueIntent B2B. With roots spanning B2B demand generation, IT software sales, and international market expansion across both India and the United States, he bridges the gap between global strategy and ground-level execution. His cross-industry perspective and relationship-first approach make him the driving force behind TrueIntent&apos;s consulting practice and client growth strategy.
                 </p>
               </div>
-            </motion.div>
+            </motion.div> */}
 
           </div>
         </div>
