@@ -96,7 +96,7 @@ export default function AboutPage() {
 
             <div className="mt-10 flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-slate-200 overflow-hidden relative">
-                <Image src="/assets/christopher.jpeg" alt="VP Marketing" fill className="object-cover" />
+                <Image src="/assets/Christopher.jpeg" alt="VP Marketing" fill className="object-cover" />
               </div>
               <div>
                 <p className="font-bold text-slate-900">Christopher</p>
@@ -174,7 +174,7 @@ export default function AboutPage() {
               className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition duration-300 group"
             >
               <div className="relative h-100 bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center">
-                <Image src="/assets/christopher.jpeg" alt="VP Marketing" fill className="object-cover object-top"/>
+                <Image src="/assets/Christopher.jpeg" alt="VP Marketing" fill className="object-cover object-top"/>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
               </div>
               <div className="p-8">
@@ -205,7 +205,7 @@ export default function AboutPage() {
               className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-xl transition duration-300 group"
             >
               <div className="relative h-100 bg-gradient-to-br from-indigo-50 to-violet-100 flex items-center justify-center">
-                <Image src="/assets/kevin.jpeg" alt="Head of Operations" fill className="object-cover object-top" />
+                <Image src="/assets/Kevin.jpeg" alt="Head of Operations" fill className="object-cover object-top" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-50 via-transparent to-transparent"></div>
               </div>
               <div className="p-8">
