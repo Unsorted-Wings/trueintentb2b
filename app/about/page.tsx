@@ -37,17 +37,18 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 bg-grid-white">
-        <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/20 blur-[120px]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
+        <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/10 blur-[120px]" />
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-44">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-yellow">About Us</p>
-            <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">About Us</p>
+            <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-navy-900 md:text-6xl">
               We believe in the power of{' '}
-              <span className="text-brand-400">human connection</span> in B2B sales.
+              <span className="text-brand-600">human connection</span> in B2B sales.
             </h1>
           </Reveal>
         </div>
+        <div className="absolute bottom-0 left-0 h-1.5 w-full bg-gradient-to-r from-brand-500 via-accent-yellow to-accent-blue" />
       </section>
 
       {/* Story */}
@@ -85,27 +86,27 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="relative overflow-hidden bg-navy-950 bg-grid-white">
-        <div className="pointer-events-none absolute left-[-10%] top-[-30%] h-[420px] w-[420px] rounded-full bg-accent-blue/15 blur-[120px]" />
+      <section className="relative overflow-hidden bg-navy-50 bg-grid-navy">
+        <div className="pointer-events-none absolute left-[-10%] top-[-30%] h-[420px] w-[420px] rounded-full bg-accent-blue/10 blur-[120px]" />
         <div className="relative mx-auto max-w-7xl px-6 py-24 lg:py-32">
           <div className="grid gap-6 md:grid-cols-2">
             <Reveal>
-              <div className="h-full border border-white/10 bg-navy-900/70 p-10">
+              <div className="h-full border border-navy-100 bg-white p-10 shadow-sm">
                 <span className="skew-panel inline-block bg-brand-500 px-4 py-1 font-display text-sm font-bold uppercase tracking-widest text-white">
                   <span>Our Mission</span>
                 </span>
-                <p className="mt-7 font-display text-2xl font-semibold leading-snug text-white">
+                <p className="mt-7 font-display text-2xl font-semibold leading-snug text-navy-800">
                   To empower B2B businesses with high-quality sales opportunities through
                   strategic, human-to-human demand generation.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.12}>
-              <div className="h-full border border-white/10 bg-navy-900/70 p-10">
+              <div className="h-full border border-navy-100 bg-white p-10 shadow-sm">
                 <span className="skew-panel inline-block bg-accent-yellow px-4 py-1 font-display text-sm font-bold uppercase tracking-widest text-navy-900">
                   <span>Our Vision</span>
                 </span>
-                <p className="mt-7 font-display text-2xl font-semibold leading-snug text-white">
+                <p className="mt-7 font-display text-2xl font-semibold leading-snug text-navy-800">
                   To be the most trusted partner for B2B companies looking to scale their
                   revenue through authentic outreach and real conversations.
                 </p>
@@ -116,18 +117,18 @@ export default function AboutPage() {
           {/* Values */}
           <div className="mt-24">
             <Reveal>
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-yellow">Core Values</p>
-              <h2 className="beam mt-4 font-display text-4xl font-bold tracking-tight text-white">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Core Values</p>
+              <h2 className="beam mt-4 font-display text-4xl font-bold tracking-tight text-navy-900">
                 What we stand for
               </h2>
             </Reveal>
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {values.map((v, i) => (
                 <Reveal key={v.title} delay={i * 0.08}>
-                  <div className="group h-full border border-white/10 bg-navy-900/60 p-7 transition duration-300 hover:-translate-y-1.5 hover:border-brand-500/60">
-                    <v.icon size={26} strokeWidth={1.6} className="text-accent-blue transition group-hover:text-accent-yellow" />
-                    <h3 className="mt-5 font-display text-lg font-bold text-white">{v.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-300">{v.body}</p>
+                  <div className="group h-full border border-navy-100 bg-white p-7 transition duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/10">
+                    <v.icon size={26} strokeWidth={1.6} className="text-accent-blue-dark transition group-hover:text-brand-600" />
+                    <h3 className="mt-5 font-display text-lg font-bold text-navy-900">{v.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-navy-600">{v.body}</p>
                   </div>
                 </Reveal>
               ))}

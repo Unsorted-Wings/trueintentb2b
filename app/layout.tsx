@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} bg-navy-950 font-sans text-white antialiased`}
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-white font-sans text-navy-900 antialiased`}
       >
         <Navbar />
         <main>{children}</main>

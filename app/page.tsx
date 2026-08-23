@@ -60,34 +60,52 @@ const caseResults = [
   { metric: '104', label: 'appointments booked with qualified plants for an industrial manufacturer' },
 ];
 
+const processSteps = [
+  {
+    icon: ScanSearch,
+    title: 'Deep research first',
+    body: 'We map your ICP and study every account before a single dial is made.',
+  },
+  {
+    icon: PhoneCall,
+    title: 'Real humans reach out',
+    body: 'Trained SDRs start genuine conversations by phone, email, and LinkedIn — never bots.',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Meetings land on your calendar',
+    body: 'Qualified decision-makers show up ready to talk, with full context handed to your team.',
+  },
+];
+
 export default function HomePage() {
   return (
     <>
       {/* ---------- HERO ---------- */}
-      <section className="relative overflow-hidden bg-navy-950 bg-grid-white">
-        <div className="pointer-events-none absolute -top-48 right-[-10%] h-[560px] w-[560px] rounded-full bg-brand-600/20 blur-[140px]" />
-        <div className="pointer-events-none absolute bottom-[-20%] left-[-5%] h-[420px] w-[420px] rounded-full bg-accent-blue/15 blur-[120px]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
+        <div className="pointer-events-none absolute -top-48 right-[-10%] h-[560px] w-[560px] rounded-full bg-brand-600/10 blur-[140px]" />
+        <div className="pointer-events-none absolute bottom-[-20%] left-[-5%] h-[420px] w-[420px] rounded-full bg-accent-blue/10 blur-[120px]" />
 
         <div className="relative mx-auto grid max-w-7xl items-center gap-16 px-6 pb-28 pt-40 lg:grid-cols-[1.05fr_0.95fr] lg:pt-48">
           <Reveal>
-            <div className="skew-panel inline-flex items-center gap-2 border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-yellow backdrop-blur">
+            <div className="skew-panel inline-flex items-center gap-2 border border-navy-200 bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-brand-600 shadow-sm backdrop-blur">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-500" />
               <span>Human-Led B2B Demand Generation</span>
             </div>
 
-            <h1 className="mt-7 font-display text-5xl font-bold leading-[1.04] tracking-tight md:text-6xl xl:text-[4.4rem]">
+            <h1 className="mt-7 font-display text-5xl font-bold leading-[1.04] tracking-tight text-navy-900 md:text-6xl xl:text-[4.4rem]">
               Predictable Pipeline.
               <br />
-              <span className="text-accent-yellow">Powered by People.</span>
+              <span className="text-brand-600">Powered by People.</span>
               <br />
               Driven by{' '}
               <span className="relative inline-block">
                 Relationships.
-                <span className="absolute inset-x-0 bottom-1 -z-10 h-3 bg-brand-500/40" aria-hidden />
+                <span className="absolute inset-x-0 bottom-1 -z-10 h-3 bg-accent-yellow/80" aria-hidden />
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-navy-200">
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-navy-600">
               Technology is a tool, but people buy from people. We build high-converting
               B2B lead generation engines driven by human expertise, empathetic outreach,
               and real conversations. Stop chasing auto-replies. Start building real
@@ -104,7 +122,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/services"
-                className="clip-slant-btn group inline-flex items-center gap-2 border border-white/25 px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition hover:border-accent-yellow hover:text-accent-yellow"
+                className="clip-slant-btn group inline-flex items-center gap-2 border border-navy-300 px-8 py-4 text-sm font-bold uppercase tracking-wide text-navy-800 transition hover:border-brand-500 hover:text-brand-600"
               >
                 See Our Services
               </Link>
@@ -113,24 +131,24 @@ export default function HomePage() {
 
           {/* Abstract composition echoing the logo mark */}
           <Reveal delay={0.15} className="relative hidden h-[480px] lg:block">
-            <div className="absolute left-0 top-16 h-24 w-full skew-panel bg-gradient-to-r from-brand-400 via-brand-500 to-brand-700 shadow-2xl shadow-brand-600/30" />
-            <div className="absolute left-1/3 top-36 flex h-72 w-52 items-end justify-center skew-panel border-2 border-accent-blue bg-gradient-to-b from-accent-yellow to-accent-yellow-dark/70 p-6 shadow-2xl shadow-black/40">
+            <div className="absolute left-0 top-16 h-24 w-full skew-panel bg-gradient-to-r from-brand-400 via-brand-500 to-brand-700 shadow-xl shadow-brand-600/20" />
+            <div className="absolute left-1/3 top-36 flex h-72 w-52 items-end justify-center skew-panel border-2 border-accent-blue bg-gradient-to-b from-accent-yellow to-accent-yellow-dark/70 p-6 shadow-xl shadow-navy-900/20">
               <span className="pb-2 font-display text-sm font-bold uppercase tracking-widest text-navy-900">
                 Real Conversations
               </span>
             </div>
-            <div className="absolute left-8 top-64 w-64 border border-white/10 bg-navy-900/90 p-5 shadow-xl shadow-black/40 backdrop-blur">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent-blue">
+            <div className="absolute left-8 top-64 w-64 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent-blue-dark">
                 <CheckCircle2 size={14} /> Meeting Booked
               </p>
-              <p className="mt-2 text-sm text-navy-100">
+              <p className="mt-2 text-sm text-navy-700">
                 VP of Engineering · Series C SaaS
               </p>
-              <p className="mt-1 text-xs text-navy-300">Thursday, 10:00 AM MST</p>
+              <p className="mt-1 text-xs text-navy-500">Thursday, 10:00 AM MST</p>
             </div>
-            <div className="absolute bottom-2 right-0 w-56 border border-white/10 bg-navy-900/90 p-5 shadow-xl shadow-black/40 backdrop-blur">
-              <p className="font-display text-3xl font-bold text-brand-400">35%</p>
-              <p className="mt-1 text-xs leading-snug text-navy-300">
+            <div className="absolute bottom-2 right-0 w-56 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
+              <p className="font-display text-3xl font-bold text-brand-600">35%</p>
+              <p className="mt-1 text-xs leading-snug text-navy-500">
                 reply rate on personalized outreach vs. 1–3% on automated sequences
               </p>
             </div>
@@ -138,12 +156,12 @@ export default function HomePage() {
         </div>
 
         {/* Stats band */}
-        <div className="relative border-t border-white/10 bg-navy-900/60 backdrop-blur">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-white/10 lg:grid-cols-4">
+        <div className="relative border-t border-navy-200/70 bg-white/80 backdrop-blur">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-navy-200/60 lg:grid-cols-4">
             {stats.map((s) => (
               <div key={s.label} className="px-6 py-8 text-center">
-                <p className="font-display text-3xl font-bold text-white md:text-4xl">{s.value}</p>
-                <p className="mt-1.5 text-xs uppercase tracking-wider text-navy-300">{s.label}</p>
+                <p className="font-display text-3xl font-bold text-navy-900 md:text-4xl">{s.value}</p>
+                <p className="mt-1.5 text-xs uppercase tracking-wider text-navy-500">{s.label}</p>
               </div>
             ))}
           </div>
@@ -180,22 +198,22 @@ export default function HomePage() {
       </section>
 
       {/* ---------- SERVICES PREVIEW ---------- */}
-      <section className="bg-navy-950 bg-grid-white">
+      <section className="bg-navy-50 bg-grid-navy">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
           <Reveal className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-yellow">What We Do</p>
-              <h2 className="beam mt-4 font-display text-4xl font-bold tracking-tight text-white lg:text-5xl">
+              <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">What We Do</p>
+              <h2 className="beam mt-4 font-display text-4xl font-bold tracking-tight text-navy-900 lg:text-5xl">
                 Full-lifecycle demand generation, guided by human strategy
               </h2>
-              <p className="mt-6 text-lg text-navy-300">
+              <p className="mt-6 text-lg text-navy-600">
                 Whether we are cleaning data or cold calling, our approach is always guided
                 by human strategy and insight.
               </p>
             </div>
             <Link
               href="/services"
-              className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-accent-yellow transition hover:text-white"
+              className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-brand-600 transition hover:text-navy-900"
             >
               All Services <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
@@ -208,13 +226,13 @@ export default function HomePage() {
                 <Reveal key={svc.slug} delay={(i % 3) * 0.08}>
                   <Link
                     href={`/services/${svc.slug}`}
-                    className="group relative block h-full overflow-hidden border border-white/10 bg-navy-900/60 p-8 transition duration-300 hover:-translate-y-1.5 hover:border-brand-500/60"
+                    className="group relative block h-full overflow-hidden border border-navy-100 bg-white p-8 transition duration-300 hover:-translate-y-1.5 hover:border-brand-200 hover:shadow-xl hover:shadow-brand-500/10"
                   >
-                    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-500/0 blur-2xl transition duration-500 group-hover:bg-brand-500/20" />
-                    <Icon size={26} strokeWidth={1.6} className="text-accent-blue transition group-hover:text-accent-yellow" />
-                    <h3 className="mt-5 font-display text-xl font-bold text-white">{svc.name}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-navy-300">{svc.short}</p>
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-400 opacity-0 transition group-hover:opacity-100">
+                    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-500/0 blur-2xl transition duration-500 group-hover:bg-brand-500/10" />
+                    <Icon size={26} strokeWidth={1.6} className="text-accent-blue-dark transition group-hover:text-brand-600" />
+                    <h3 className="mt-5 font-display text-xl font-bold text-navy-900">{svc.name}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-navy-600">{svc.short}</p>
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-brand-600 opacity-0 transition group-hover:opacity-100">
                       Explore <ArrowRight size={13} />
                     </span>
                   </Link>
@@ -226,7 +244,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------- CASE STUDY TEASER ---------- */}
-      <section className="bg-navy-50 text-navy-900 bg-grid-navy">
+      <section className="bg-white text-navy-900">
         <div className="mx-auto max-w-7xl px-6 py-24 lg:py-32">
           <Reveal className="max-w-3xl">
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Proof, Not Promises</p>
@@ -241,7 +259,7 @@ export default function HomePage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {caseResults.map((c, i) => (
               <Reveal key={c.metric} delay={i * 0.1}>
-                <div className="flex h-full items-start gap-6 border-l-4 border-brand-500 bg-white p-8 shadow-sm">
+                <div className="flex h-full items-start gap-6 border border-navy-100 border-l-4 border-l-brand-500 bg-white p-8 shadow-sm">
                   <p className="font-display text-5xl font-bold text-brand-600">{c.metric}</p>
                   <p className="pt-2 text-sm leading-relaxed text-navy-700">{c.label}</p>
                 </div>

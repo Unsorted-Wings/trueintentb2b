@@ -31,8 +31,10 @@ export default function Navbar() {
   }, []);
 
   const linkCls = (href: string) =>
-    `text-sm font-medium transition hover:text-white ${
-      pathname.startsWith(href) ? 'text-white' : 'text-navy-200'
+    `text-sm font-medium transition ${
+      pathname.startsWith(href)
+        ? 'font-semibold text-brand-600'
+        : 'text-navy-600 hover:text-navy-900'
     }`;
 
   const closeAll = () => {
@@ -45,16 +47,16 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-navy-950/90 backdrop-blur-md border-b border-white/10 py-3'
+          ? 'border-b border-navy-200/70 bg-white/90 py-3 backdrop-blur-md'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.png" alt="TrueIntent B2B" width={40} height={40} className="h-9 w-auto" priority />
-          <span className="font-display text-lg font-bold tracking-tight text-white">
+          <span className="font-display text-lg font-bold tracking-tight text-navy-900">
             TRUE<span className="text-brand-500">INTENT</span>
-            <span className="ml-1.5 hidden text-[10px] font-semibold uppercase tracking-[0.25em] text-accent-yellow sm:inline">
+            <span className="ml-1.5 hidden text-[10px] font-semibold uppercase tracking-[0.25em] text-brand-600 sm:inline">
               B2B
             </span>
           </span>
@@ -78,13 +80,13 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.15 }}
-                  className="absolute left-1/2 top-full mt-4 w-80 -translate-x-1/2 overflow-hidden rounded-xl border border-white/10 bg-navy-900 shadow-2xl shadow-black/50"
+                  className="absolute left-1/2 top-full mt-4 w-80 -translate-x-1/2 overflow-hidden rounded-xl border border-navy-100 bg-white shadow-xl shadow-navy-900/10"
                 >
                   <div className="p-2">
                     <Link
                       href="/services"
                       onClick={closeAll}
-                      className="mb-1 flex items-center justify-between rounded-lg px-4 py-3 text-xs font-bold uppercase tracking-widest text-accent-yellow transition hover:bg-white/5"
+                      className="mb-1 flex items-center justify-between rounded-lg px-4 py-3 text-xs font-bold uppercase tracking-widest text-brand-600 transition hover:bg-navy-50"
                     >
                       All Services <ArrowRight size={14} />
                     </Link>
@@ -93,7 +95,7 @@ export default function Navbar() {
                         key={svc.slug}
                         href={`/services/${svc.slug}`}
                         onClick={closeAll}
-                        className="block rounded-lg px-4 py-2.5 text-sm text-navy-100 transition hover:bg-white/5 hover:text-white"
+                        className="block rounded-lg px-4 py-2.5 text-sm text-navy-700 transition hover:bg-navy-50 hover:text-navy-900"
                       >
                         {svc.name}
                       </Link>
@@ -121,7 +123,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="text-white lg:hidden"
+          className="text-navy-900 lg:hidden"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -136,35 +138,35 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-b border-white/10 bg-navy-950 lg:hidden"
+            className="overflow-hidden border-b border-navy-100 bg-white lg:hidden"
           >
             <div className="flex max-h-[75vh] flex-col gap-1 overflow-y-auto p-6">
               <div>
                 <button
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex w-full items-center justify-between py-2 font-display text-base font-semibold text-white"
+                  className="flex w-full items-center justify-between py-2 font-display text-base font-semibold text-navy-900"
                 >
                   Services
                   <ChevronDown size={18} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {mobileServicesOpen && (
                   <div className="space-y-1 pb-2 pl-4">
-                    <Link href="/services" onClick={closeAll} className="block py-1.5 text-sm font-semibold text-accent-yellow">
+                    <Link href="/services" onClick={closeAll} className="block py-1.5 text-sm font-semibold text-brand-600">
                       All Services
                     </Link>
                     {services.map((svc) => (
-                      <Link key={svc.slug} href={`/services/${svc.slug}`} onClick={closeAll} className="block py-1.5 text-sm text-navy-200">
+                      <Link key={svc.slug} href={`/services/${svc.slug}`} onClick={closeAll} className="block py-1.5 text-sm text-navy-600">
                         {svc.name}
                       </Link>
                     ))}
                   </div>
                 )}
               </div>
-              <Link href="/" onClick={closeAll} className="py-2 font-display text-base font-semibold text-white">
+              <Link href="/" onClick={closeAll} className="py-2 font-display text-base font-semibold text-navy-900">
                 Home
               </Link>
               {links.map((l) => (
-                <Link key={l.href} href={l.href} onClick={closeAll} className="py-2 font-display text-base font-semibold text-white">
+                <Link key={l.href} href={l.href} onClick={closeAll} className="py-2 font-display text-base font-semibold text-navy-900">
                   {l.name}
                 </Link>
               ))}
@@ -182,4 +184,3 @@ export default function Navbar() {
     </header>
   );
 }
-

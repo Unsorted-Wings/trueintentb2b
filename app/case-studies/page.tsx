@@ -41,15 +41,15 @@ export default function CaseStudiesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 bg-grid-white">
-        <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/20 blur-[120px]" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
+        <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/10 blur-[120px]" />
         <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-44">
           <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.25em] text-accent-yellow">Case Studies</p>
-            <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight md:text-6xl">
-              Proof, not <span className="text-brand-400">promises.</span>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Case Studies</p>
+            <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-navy-900 md:text-6xl">
+              Proof, not <span className="text-brand-600">promises.</span>
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-navy-200">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-navy-600">
               Don&apos;t just take our word for it. See how our human-led approach has
               helped businesses like yours scale their revenue.
             </p>

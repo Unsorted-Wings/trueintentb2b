@@ -36,8 +36,8 @@ html {
 }
 
 body {
-  background: var(--color-navy-950);
-  color: #fff;
+  background: #ffffff;
+  color: var(--color-navy-900);
 }
 
 ::selection {
@@ -50,10 +50,10 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-navy-950);
+  background: var(--color-navy-100);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-navy-600);
+  background: var(--color-navy-300);
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
