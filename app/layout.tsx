@@ -3,6 +3,9 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
+import CustomCursor from '@/components/custom-cursor';
+import ScrollProgress from '@/components/scroll-progress';
+import BackToTop from '@/components/back-to-top';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({
@@ -27,9 +30,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} bg-white font-sans text-navy-900 antialiased`}
       >
+        <ScrollProgress />
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <BackToTop />
+        <CustomCursor />
       </body>
     </html>
   );

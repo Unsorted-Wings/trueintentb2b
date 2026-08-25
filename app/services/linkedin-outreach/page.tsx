@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function LinkedinOutreachPage() {
   return (
     <ServiceTemplate
+      image="/images/service-linkedin-outreach.jpg"
       slug="linkedin-outreach"
       name="LinkedIn Outreach"
       headline="Build relationships, not just connections."

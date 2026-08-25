@@ -31,10 +31,10 @@ export default function Navbar() {
   }, []);
 
   const linkCls = (href: string) =>
-    `text-sm font-medium transition ${
+    `relative text-sm font-medium transition after:absolute after:-bottom-1.5 after:left-0 after:h-[2px] after:w-full after:skew-x-[-12deg] after:bg-brand-500 after:transition-transform after:duration-300 ${
       pathname.startsWith(href)
-        ? 'font-semibold text-brand-600'
-        : 'text-navy-600 hover:text-navy-900'
+        ? 'font-semibold text-brand-600 after:scale-x-100'
+        : 'text-navy-600 after:scale-x-0 hover:text-navy-900 hover:after:scale-x-100'
     }`;
 
   const closeAll = () => {
@@ -56,9 +56,7 @@ export default function Navbar() {
           <Image src="/logo.png" alt="TrueIntent B2B" width={40} height={40} className="h-9 w-auto" priority />
           <span className="font-display text-lg font-bold tracking-tight text-navy-900">
             TRUE<span className="text-brand-500">INTENT</span>
-            <span className="ml-1.5 hidden text-[10px] font-semibold uppercase tracking-[0.25em] text-brand-600 sm:inline">
-              B2B
-            </span>
+            <span className="text-gold-500">B2B</span>
           </span>
         </Link>
 

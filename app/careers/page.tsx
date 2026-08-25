@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -44,7 +45,7 @@ export default function CareersPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
         <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-44">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-44 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Careers</p>
             <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-navy-900 md:text-6xl">
@@ -57,6 +58,21 @@ export default function CareersPage() {
               thrill from turning a cold lead into a warm handshake — this is the place
               for you.
             </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div
+              className="relative hidden h-[320px] overflow-hidden border-l-4 border-brand-500 shadow-2xl shadow-navy-900/20 lg:block"
+              style={{ clipPath: 'polygon(4% 0, 100% 0, 96% 100%, 0 100%)' }}
+            >
+              <Image
+                src="/images/careers-hero.jpg"
+                alt="A TrueIntent B2B team training session"
+                fill
+                sizes="40vw"
+                priority
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </div>
         <div className="absolute bottom-0 left-0 h-1.5 w-full bg-gradient-to-r from-brand-500 via-accent-yellow to-accent-blue" />
@@ -110,15 +126,25 @@ export default function CareersPage() {
               </ul>
             </Reveal>
             <Reveal delay={0.15}>
-              <div className="mt-12 bg-navy-900 p-8 text-white">
-                <Home size={22} className="text-accent-yellow" />
-                <p className="mt-4 font-display text-lg font-semibold leading-snug">
-                  Work from anywhere. Grow with everyone.
-                </p>
-                <p className="mt-2 text-sm text-navy-300">
-                  Our team collaborates across time zones with weekly call reviews and a
-                  culture of continuous feedback.
-                </p>
+              <div className="relative mt-12 overflow-hidden bg-navy-900 p-8 text-white">
+                <Image
+                  src="/images/careers-remote.jpg"
+                  alt="A team member working remotely from a home office"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover opacity-25"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-transparent" />
+                <div className="relative">
+                  <Home size={22} className="text-accent-yellow" />
+                  <p className="mt-4 font-display text-lg font-semibold leading-snug">
+                    Work from anywhere. Grow with everyone.
+                  </p>
+                  <p className="mt-2 text-sm text-navy-200">
+                    Our team collaborates across time zones with weekly call reviews and a
+                    culture of continuous feedback.
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>

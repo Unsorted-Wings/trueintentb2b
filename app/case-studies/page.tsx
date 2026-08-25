@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { AlertTriangle, Lightbulb, TrendingUp } from 'lucide-react';
 import Reveal from '@/components/reveal';
 import CtaBand from '@/components/cta-band';
@@ -13,6 +14,8 @@ const studies = [
   {
     tag: 'SaaS Scale-Up',
     title: 'From zero replies to a 35% reply rate',
+    image:
+      '/images/case-saas.jpg',
     challenge:
       'A B2B SaaS company was using automated email tools, getting high open rates but zero replies. Their pipeline was stagnant.',
     solution:
@@ -25,6 +28,8 @@ const studies = [
   {
     tag: 'Manufacturing Firm',
     title: '104 appointments and 4 major account wins',
+    image:
+      '/images/case-manufacturing.jpg',
     challenge:
       'A manufacturer of industrial equipment relied too heavily on trade shows (which were cancelled) and had no outbound voice strategy.',
     solution:
@@ -43,7 +48,7 @@ export default function CaseStudiesPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
         <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-44">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-44 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Case Studies</p>
             <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-navy-900 md:text-6xl">
@@ -53,6 +58,21 @@ export default function CaseStudiesPage() {
               Don&apos;t just take our word for it. See how our human-led approach has
               helped businesses like yours scale their revenue.
             </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div
+              className="relative hidden h-[320px] overflow-hidden border-l-4 border-brand-500 shadow-2xl shadow-navy-900/20 lg:block"
+              style={{ clipPath: 'polygon(4% 0, 100% 0, 96% 100%, 0 100%)' }}
+            >
+              <Image
+                src="/images/case-studies-hero.jpg"
+                alt="Strategists reviewing client results on a whiteboard"
+                fill
+                sizes="40vw"
+                priority
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </div>
         <div className="absolute bottom-0 left-0 h-1.5 w-full bg-gradient-to-r from-brand-500 via-accent-yellow to-accent-blue" />
@@ -77,6 +97,17 @@ export default function CaseStudiesPage() {
                   <span className="clip-slant-btn hidden shrink-0 bg-brand-500 px-4 py-2 font-display text-xs font-bold uppercase tracking-widest text-white sm:inline-block">
                     {study.tag}
                   </span>
+                </div>
+
+                <div className="relative h-52 w-full overflow-hidden lg:h-64">
+                  <Image
+                    src={study.image}
+                    alt={`${study.tag} case study`}
+                    fill
+                    sizes="(max-width: 1280px) 100vw, 1280px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-900/40 to-transparent" />
                 </div>
 
                 <div className="grid gap-10 px-8 py-10 lg:grid-cols-[1fr_1fr_1.1fr] lg:px-12">

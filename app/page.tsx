@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -13,6 +14,7 @@ import {
   Linkedin,
   Mail,
   CheckCircle2,
+  Diamond,
 } from 'lucide-react';
 import Reveal from '@/components/reveal';
 import { services } from '@/lib/data';
@@ -78,6 +80,17 @@ const processSteps = [
   },
 ];
 
+const marqueeItems = [
+  '100% Human-Led Outreach',
+  'Lead Generation',
+  'Pay-for-Performance',
+  'Appointment Setting',
+  'SDR-as-a-Service',
+  'LinkedIn Outreach',
+  'CRM Management',
+  'Email Marketing',
+];
+
 export default function HomePage() {
   return (
     <>
@@ -96,7 +109,9 @@ export default function HomePage() {
             <h1 className="mt-7 font-display text-5xl font-bold leading-[1.04] tracking-tight text-navy-900 md:text-6xl xl:text-[4.4rem]">
               Predictable Pipeline.
               <br />
-              <span className="text-brand-600">Powered by People.</span>
+              <span className="bg-gradient-to-r from-brand-600 via-brand-500 to-gold-500 bg-clip-text text-transparent">
+                Powered by People.
+              </span>
               <br />
               Driven by{' '}
               <span className="relative inline-block">
@@ -137,7 +152,7 @@ export default function HomePage() {
                 Real Conversations
               </span>
             </div>
-            <div className="absolute left-8 top-64 w-64 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
+            <div className="animate-float absolute left-8 top-64 w-64 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-accent-blue-dark">
                 <CheckCircle2 size={14} /> Meeting Booked
               </p>
@@ -146,7 +161,7 @@ export default function HomePage() {
               </p>
               <p className="mt-1 text-xs text-navy-500">Thursday, 10:00 AM MST</p>
             </div>
-            <div className="absolute bottom-2 right-0 w-56 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
+            <div className="animate-float-delayed absolute bottom-2 right-0 w-56 border border-navy-200/80 bg-white p-5 shadow-xl shadow-navy-900/10 backdrop-blur">
               <p className="font-display text-3xl font-bold text-brand-600">35%</p>
               <p className="mt-1 text-xs leading-snug text-navy-500">
                 reply rate on personalized outreach vs. 1–3% on automated sequences
@@ -167,6 +182,20 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ---------- MARQUEE TICKER ---------- */}
+      <div className="group overflow-hidden border-y border-navy-800 bg-navy-950 py-5">
+        <div className="animate-marquee flex w-max items-center group-hover:[animation-play-state:paused]">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className="flex items-center gap-10 px-10">
+              <span className="whitespace-nowrap font-display text-sm font-semibold uppercase tracking-[0.3em] text-white/85">
+                {item}
+              </span>
+              <Diamond size={9} className="shrink-0 text-accent-yellow" fill="currentColor" />
+            </span>
+          ))}
+        </div>
+      </div>
 
       {/* ---------- WHY CHOOSE US ---------- */}
       <section className="bg-white text-navy-900">
@@ -194,6 +223,46 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ---------- OUR PEOPLE ---------- */}
+      <section className="overflow-hidden bg-white">
+        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-[1fr_1.05fr] lg:py-28">
+          <Reveal>
+            <div
+              className="relative h-[380px] overflow-hidden border-l-4 border-brand-500 shadow-2xl shadow-navy-900/20 lg:h-[440px]"
+              style={{ clipPath: 'polygon(4% 0, 100% 0, 96% 100%, 0 100%)' }}
+            >
+              <Image
+                src="/images/home-team.jpg"
+                alt="TrueIntent B2B strategists collaborating around a table"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Our People</p>
+            <h2 className="beam mt-4 font-display text-4xl font-bold tracking-tight lg:text-5xl">
+              Real people. Real calls. Real pipeline.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-navy-600">
+              Behind every booked meeting is a trained strategist who did the homework —
+              researched the account, understood the pain points, and earned the
+              conversation. No bots, no sequences, no shortcuts.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="border-l-4 border-brand-500 bg-navy-50 p-5">
+                <p className="font-display text-lg font-bold text-navy-900">Dedicated SDR pods</p>
+                <p className="mt-1 text-sm text-navy-600">A named team that learns your voice and market.</p>
+              </div>
+              <div className="border-l-4 border-accent-blue bg-navy-50 p-5">
+                <p className="font-display text-lg font-bold text-navy-900">100% human-led outreach</p>
+                <p className="mt-1 text-sm text-navy-600">Every call, email, and message sent by a person.</p>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

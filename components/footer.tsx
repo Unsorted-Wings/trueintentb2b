@@ -14,13 +14,15 @@ const companyLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-navy-950">
+    <footer className="bg-navy-950">
+      <div aria-hidden className="h-px w-full bg-gradient-to-r from-transparent via-brand-500/60 to-transparent" />
       <div className="mx-auto grid max-w-7xl gap-12 px-6 pb-16 pt-20 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="TrueIntent B2B" width={36} height={36} className="h-8 w-auto" />
             <span className="font-display text-lg font-bold tracking-tight text-white">
               TRUE<span className="text-brand-500">INTENT</span>
+              <span className="text-gold-400">B2B</span>
             </span>
           </Link>
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-navy-300">

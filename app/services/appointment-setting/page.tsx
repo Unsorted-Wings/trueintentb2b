@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function AppointmentSettingPage() {
   return (
     <ServiceTemplate
+      image="/images/service-appointment-setting.jpg"
       slug="appointment-setting"
       name="Appointment Setting"
       headline="We book the meetings. You close the deals."

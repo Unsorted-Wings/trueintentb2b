@@ -27,6 +27,11 @@
   --color-accent-blue: #4a90e2;
   --color-accent-blue-dark: #2f6fb8;
 
+  --color-gold-300: #ffd970;
+  --color-gold-400: #f2b93b;
+  --color-gold-500: #dda423;
+  --color-gold-600: #bd8712;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
@@ -43,6 +48,28 @@ body {
 ::selection {
   background: var(--color-brand-500);
   color: #fff;
+}
+
+/* Custom cursor: hide the native cursor whenever the enhanced one is active */
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-y 7s ease-in-out -3s infinite;
 }
 
 /* Scrollbar */
@@ -79,6 +106,24 @@ body {
 /* Angled CTA button (echoes the logo's forward-leaning mark) */
 .clip-slant-btn {
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+  position: relative;
+  overflow: hidden;
+}
+.clip-slant-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.7s ease;
+}
+.clip-slant-btn:hover::after {
+  transform: translateX(130%);
 }
 
 /* Red beam underline used on section headings */

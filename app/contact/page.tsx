@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Suspense } from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Reveal from '@/components/reveal';
@@ -23,7 +24,7 @@ export default function ContactPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-b from-navy-100 via-navy-50 to-white bg-grid-navy">
         <div className="pointer-events-none absolute -top-40 right-[-8%] h-[420px] w-[420px] rounded-full bg-brand-600/10 blur-[120px]" />
-        <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-44">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 pb-20 pt-44 lg:grid-cols-[1.15fr_0.85fr]">
           <Reveal>
             <p className="text-xs font-bold uppercase tracking-[0.25em] text-brand-600">Contact</p>
             <h1 className="mt-5 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-navy-900 md:text-6xl">
@@ -34,6 +35,21 @@ export default function ContactPage() {
               form below, and one of our strategists will reach out to you personally
               within 24 hours.
             </p>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div
+              className="relative hidden h-[320px] overflow-hidden border-l-4 border-brand-500 shadow-2xl shadow-navy-900/20 lg:block"
+              style={{ clipPath: 'polygon(4% 0, 100% 0, 96% 100%, 0 100%)' }}
+            >
+              <Image
+                src="/images/contact-hero.jpg"
+                alt="The TrueIntent B2B office where every conversation starts"
+                fill
+                sizes="40vw"
+                priority
+                className="object-cover"
+              />
+            </div>
           </Reveal>
         </div>
         <div className="absolute bottom-0 left-0 h-1.5 w-full bg-gradient-to-r from-brand-500 via-accent-yellow to-accent-blue" />

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function CrmManagementPage() {
   return (
     <ServiceTemplate
+      image="/images/service-crm-management.jpg"
       slug="crm-management"
       name="CRM Management"
       headline="Clean data. Clear pipeline. Human oversight."

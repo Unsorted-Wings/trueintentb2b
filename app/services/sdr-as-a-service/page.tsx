@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function SdrAsAServicePage() {
   return (
     <ServiceTemplate
+      image="/images/service-sdr-as-a-service.jpg"
       slug="sdr-as-a-service"
       name="SDR as a Service"
       headline="A fully managed sales development team without the overhead."

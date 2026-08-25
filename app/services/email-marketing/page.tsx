@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function EmailMarketingPage() {
   return (
     <ServiceTemplate
+      image="/images/service-email-marketing.jpg"
       slug="email-marketing"
       name="Email Marketing"
       headline="Cold email that sounds like it came from a human. Because it did."

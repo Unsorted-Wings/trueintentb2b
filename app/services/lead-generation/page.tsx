@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function LeadGenerationPage() {
   return (
     <ServiceTemplate
+      image="/images/service-lead-generation.jpg"
       slug="lead-generation"
       name="Lead Generation"
       headline="Fuel your funnel with high-intent, human-vetted leads."
