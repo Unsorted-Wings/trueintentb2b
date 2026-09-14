@@ -1,233 +1,41 @@
-'use client';
+import type { Metadata } from 'next';
+import { Inter, Space_Grotesk } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
+import CustomCursor from '@/components/custom-cursor';
+import ScrollProgress from '@/components/scroll-progress';
+import BackToTop from '@/components/back-to-top';
 
-import "./globals.css";
-import { Inter } from 'next/font/google';
-import { useState, useEffect } from 'react';
-import { ChevronDown, Target, Menu, X, Linkedin, Twitter, Facebook } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
 
-const inter = Inter({ subsets: ['latin'] });
-
-const serviceLinks = [
-  { name: 'Intent Data & Tele-Verification', href: '/services/intent-data' },
-  { name: 'ABM Execution', href: '/services/abm-execution' },
-  { name: 'MQL Generation', href: '/services/mql-generation' },
-  { name: 'HQL / BANT-Qualified Leads', href: '/services/hql-bant' },
-  { name: 'Whitepaper & Content Syndication', href: '/services/content-syndication' },
-  { name: 'CRM Data Cleansing & Enrichment', href: '/services/crm-enrichment' },
-  { name: 'Bookkeeping Services', href: '/services/bookkeeping' },
-];
-
-// --- NAVIGATION COMPONENT ---
-const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const isServiceSubpage = pathname.startsWith('/services');
-  const unscrolledText = isServiceSubpage ? 'text-white' : 'text-slate-500';
-  const unscrolledLogo = isServiceSubpage ? 'text-white' : 'text-black';
-
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
-
-  return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-40 h-20 rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition duration-300">
-            <Image src="/assets/TrueIntent.png" alt="TrueIntentB2B Logo" width={180} height={20} />
-          </div>
-          
-        </Link>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          {/* Services Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => setServicesOpen(false)}
-          >
-            <button className={`flex items-center gap-1 text-sm font-semibold transition hover:text-blue-500 ${
-              pathname.startsWith('/services') ? (scrolled ? 'text-blue-500' : (isServiceSubpage ? 'text-white' : 'text-blue-500')) : (scrolled ? 'text-slate-600' : unscrolledText)
-            }`}>
-              Services <ChevronDown size={14} className={`transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-            </button>
-            <AnimatePresence>
-              {servicesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-72 bg-white border border-slate-100 rounded-2xl shadow-2xl overflow-hidden"
-                >
-                  <div className="p-2">
-                    <Link href="/services" className="block px-4 py-3 rounded-xl text-xs font-bold text-blue-600 uppercase tracking-widest hover:bg-blue-50 transition mb-1">
-                      All Services →
-                    </Link>
-                    {serviceLinks.map((svc) => (
-                      <Link
-                        key={svc.href}
-                        href={svc.href}
-                        onClick={() => setServicesOpen(false)}
-                        className="block px-4 py-2.5 rounded-xl text-sm text-slate-700 font-medium hover:bg-slate-50 hover:text-blue-600 transition"
-                      >
-                        {svc.name}
-                      </Link>
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={`text-sm font-semibold transition hover:text-blue-500 ${
-                pathname === link.href ? 'text-blue-500' : (scrolled ? 'text-slate-600' : unscrolledText)
-              }`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link href="/contact">
-            <button className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition shadow-lg shadow-blue-500/30">
-              Book a Call
-            </button>
-          </Link>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-slate-500" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X /> : <Menu className={scrolled ? 'text-slate-900' : 'text-white'} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t max-h-[80vh] overflow-y-auto"
-          >
-            <div className="flex flex-col p-6 space-y-2">
-              <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium text-slate-900 py-1">Home</Link>
-
-              {/* Services mobile accordion */}
-              <div>
-                <button
-                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="flex items-center justify-between w-full text-lg font-medium text-slate-900 py-1"
-                >
-                  Services <ChevronDown size={18} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {mobileServicesOpen && (
-                  <div className="pl-4 pt-2 space-y-2">
-                    <Link href="/services" onClick={() => setIsOpen(false)} className="block text-sm font-bold text-blue-600 py-1">All Services</Link>
-                    {serviceLinks.map((svc) => (
-                      <Link key={svc.href} href={svc.href} onClick={() => { setIsOpen(false); setMobileServicesOpen(false); }} className="block text-sm text-slate-600 py-1">
-                        {svc.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              {navLinks.map((link) => (
-                <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-lg font-medium text-slate-900 py-1">
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
+export const metadata: Metadata = {
+  title: {
+    default: 'TrueIntent B2B | Predictable Pipeline. Powered by People.',
+    template: '%s | TrueIntent B2B',
+  },
+  description:
+    'High-converting B2B lead generation engines driven by human expertise, empathetic outreach, and real conversations. Stop chasing auto-replies. Start building real business relationships.',
 };
 
-// --- FOOTER COMPONENT ---
-const Footer = () => (
-  <footer className="bg-slate-950 text-slate-400 pt-20 pb-10 border-t border-slate-900">
-    <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12 mb-16">
-      <div className="col-span-1 md:col-span-2">
-        <div className="flex items-center gap-2 mb-6">
-          <div className="w-40 h-20 rounded-lg flex items-center justify-center text-white">
-            <Image src="/assets/TrueIntent.png" alt="TrueIntentB2B Logo" width={180} height={20} />
-          </div>
-        </div>
-        <p className="max-w-sm mb-8 text-slate-400">
-          Human-verified, tele-qualified demand generation built exclusively for B2B SaaS companies. We don&apos;t send you leads. We send you conversations worth having.
-        </p>
-        <div className="flex gap-4">
-          {[Linkedin, Twitter, Facebook].map((Icon, i) => (
-            <div key={i} className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition cursor-pointer">
-              <Icon size={18} />
-            </div>
-          ))}
-        </div>
-      </div>
-      <div>
-        <h4 className="text-white font-bold mb-6 text-lg">Services</h4>
-        <ul className="space-y-3 text-sm">
-          {[
-            { label: 'Intent Data & Tele-Verification', href: '/services/intent-data' },
-            { label: 'ABM Execution', href: '/services/abm-execution' },
-            { label: 'MQL Generation', href: '/services/mql-generation' },
-            { label: 'HQL / BANT-Qualified Leads', href: '/services/hql-bant' },
-            { label: 'Content Syndication', href: '/services/content-syndication' },
-            { label: 'CRM Data Cleansing', href: '/services/crm-enrichment' },
-            { label: 'Bookkeeping Services', href: '/services/bookkeeping' },
-          ].map(item => (
-            <li key={item.href}>
-              <Link href={item.href} className="hover:text-blue-500 transition">{item.label}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h4 className="text-white font-bold mb-6 text-lg">Contact</h4>
-        <ul className="space-y-3 text-sm">
-          <li>contact@trueintentb2b.com</li>
-          <li>+1 (858) 733-7444</li>
-          <li>1646 West Monte Way, Phoenix AZ 85041</li>
-        </ul>
-      </div>
-    </div>
-    <div className="max-w-7xl mx-auto px-6 text-center text-xs text-slate-600 border-t border-slate-900 pt-8">
-      &copy; {new Date().getFullYear()} TrueIntentB2B. All rights reserved.
-    </div>
-  </footer>
-);
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-white font-sans text-navy-900 antialiased`}
+      >
+        <ScrollProgress />
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
+        <BackToTop />
+        <CustomCursor />
       </body>
     </html>
   );
