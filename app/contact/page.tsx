@@ -15,7 +15,11 @@ export const metadata: Metadata = {
 const directInfo = [
   { icon: Mail, label: 'Email', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
   { icon: Phone, label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/[^+\d]/g, '')}` },
-  { icon: MapPin, label: 'Address', value: contactInfo.address },
+  ...contactInfo.offices.map((office) => ({
+    icon: MapPin,
+    label: `Address — ${office.label}`,
+    value: office.address,
+  })),
 ];
 
 export default function ContactPage() {

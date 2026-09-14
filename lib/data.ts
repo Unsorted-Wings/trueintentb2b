@@ -81,5 +81,14 @@ export const industries = [
 export const contactInfo = {
   email: "contact@trueintentb2b.com",
   phone: "+1 (858) 733-7444",
-  address: "1646 West Monte Way, Phoenix AZ 85041",
+  offices: [
+    { label: "United States", address: "Phoenix, AZ 85041" },
+    { label: "India", address: "Gandhinagar, Gujarat 382721" },
+  ],
 };
+
+export const socials = [
+  { name: "LinkedIn", icon: "Linkedin", url: "https://linkedin.com/company/true-intent-b2b" },
+  { name: "Instagram", icon: "Instagram", url: "https://www.instagram.com/trueintentb2b" },
+  { name: "YouTube", icon: "Youtube", url: "https://www.youtube.com/@trueintentb2b" },
+];

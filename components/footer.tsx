@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
-import { services, contactInfo } from '@/lib/data';
+import { Linkedin, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { services, contactInfo, socials } from '@/lib/data';
+
+const socialIcons = { Linkedin, Instagram, Youtube };
 
 const companyLinks = [
   { label: 'About Us', href: '/about' },
@@ -29,16 +31,21 @@ export default function Footer() {
             Technology is a tool, but people buy from people. We build high-converting B2B lead generation engines driven by human expertise and real conversations.
           </p>
           <div className="mt-6 flex gap-3">
-            {[Linkedin, Twitter].map((Icon, i) => (
-              <a
-                key={i}
-                href="#"
-                aria-label="Social link"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-navy-300 transition hover:border-brand-500 hover:bg-brand-500 hover:text-white"
-              >
-                <Icon size={16} />
-              </a>
-            ))}
+            {socials.map((social) => {
+              const Icon = socialIcons[social.icon as keyof typeof socialIcons];
+              return (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-navy-300 transition hover:border-brand-500 hover:bg-brand-500 hover:text-white"
+                >
+                  <Icon size={16} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
@@ -79,10 +86,12 @@ export default function Footer() {
               <Phone size={16} className="mt-0.5 shrink-0 text-brand-400" />
               <a href={`tel:${contactInfo.phone.replace(/[^+\d]/g, '')}`} className="transition hover:text-white">{contactInfo.phone}</a>
             </li>
-            <li className="flex items-start gap-3">
-              <MapPin size={16} className="mt-0.5 shrink-0 text-brand-400" />
-              <span>{contactInfo.address}</span>
-            </li>
+            {contactInfo.offices.map((office) => (
+              <li key={office.label} className="flex items-start gap-3">
+                <MapPin size={16} className="mt-0.5 shrink-0 text-brand-400" />
+                <span>{office.label} — {office.address}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
