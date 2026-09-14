@@ -12,7 +12,12 @@ export const metadata: Metadata = {
     'Ready to transform your pipeline with real human connections? Fill out the form and one of our strategists will reach out personally within 24 hours.',
 };
 
-const directInfo = [
+const directInfo: {
+  icon: typeof Mail;
+  label: string;
+  value: string;
+  href?: string;
+}[] = [
   { icon: Mail, label: 'Email', value: contactInfo.email, href: `mailto:${contactInfo.email}` },
   { icon: Phone, label: 'Phone', value: contactInfo.phone, href: `tel:${contactInfo.phone.replace(/[^+\d]/g, '')}` },
   ...contactInfo.offices.map((office) => ({
